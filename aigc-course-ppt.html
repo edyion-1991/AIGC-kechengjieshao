@@ -6,12 +6,12 @@
   <title>AIGC 全能课程展示 PPT</title>
   <style>
     :root {
-      --ink: #111827;
+      --ink: #12182b;
       --muted: #667085;
-      --line: rgba(17, 24, 39, 0.1);
+      --line: rgba(18, 24, 43, 0.1);
       --card: rgba(255, 255, 255, 0.82);
       --card-strong: rgba(255, 255, 255, 0.94);
-      --shadow: 0 28px 80px rgba(31, 41, 55, 0.18);
+      --shadow: 0 28px 80px rgba(31, 41, 70, 0.18);
       --blue: #4f8cff;
       --purple: #8067ff;
       --green: #36c58a;
@@ -31,8 +31,8 @@
       color: var(--ink);
       font-family: "Noto Sans SC", "Roboto", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       background:
-        radial-gradient(circle at 10% 14%, rgba(79, 140, 255, 0.24), transparent 30%),
-        radial-gradient(circle at 88% 12%, rgba(128, 103, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 10% 12%, rgba(79, 140, 255, 0.24), transparent 30%),
+        radial-gradient(circle at 88% 10%, rgba(128, 103, 255, 0.2), transparent 28%),
         linear-gradient(135deg, #f6f9ff 0%, #fbf7ff 48%, #f2fbf8 100%);
     }
 
@@ -42,8 +42,8 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(17, 24, 39, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(18, 24, 43, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 24, 43, 0.04) 1px, transparent 1px);
       background-size: 42px 42px;
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.66), transparent 78%);
     }
@@ -54,7 +54,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 88px;
+      padding: 30px 84px;
     }
 
     .slide {
@@ -62,17 +62,17 @@
       --accent-2: var(--purple);
       --tint: rgba(79, 140, 255, 0.09);
       position: absolute;
-      width: min(1220px, calc(100vw - 176px));
-      min-height: min(700px, calc(100vh - 96px));
+      width: min(1240px, calc(100vw - 168px));
+      min-height: min(704px, calc(100vh - 92px));
       display: none;
       grid-template-rows: auto 1fr;
       gap: 22px;
       padding: 38px;
       overflow: hidden;
       border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.74);
       background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.69)),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.68)),
         linear-gradient(135deg, var(--tint), transparent 58%);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
@@ -86,11 +86,11 @@
     .slide::after {
       content: "";
       position: absolute;
-      right: -58px;
-      bottom: -74px;
-      width: 310px;
-      height: 310px;
-      border-radius: 78px;
+      right: -62px;
+      bottom: -78px;
+      width: 320px;
+      height: 320px;
+      border-radius: 82px;
       opacity: 0.1;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       transform: rotate(15deg);
@@ -102,6 +102,7 @@
         opacity: 0;
         transform: translateY(18px) scale(0.985);
       }
+
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -112,19 +113,11 @@
       0%, 100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-8px);
       }
     }
-
-    .theme-cover { --accent: #4f8cff; --accent-2: #8067ff; --tint: rgba(128, 103, 255, 0.1); }
-    .theme-paint { --accent: #ec6f9f; --accent-2: #ffc857; --tint: rgba(236, 111, 159, 0.1); }
-    .theme-video { --accent: #4f8cff; --accent-2: #8067ff; --tint: rgba(79, 140, 255, 0.1); }
-    .theme-audio { --accent: #25b7a7; --accent-2: #36c58a; --tint: rgba(37, 183, 167, 0.1); }
-    .theme-code { --accent: #536dfe; --accent-2: #36c58a; --tint: rgba(83, 109, 254, 0.1); }
-    .theme-office { --accent: #f5a524; --accent-2: #48b6ff; --tint: rgba(245, 165, 36, 0.11); }
-    .theme-pm { --accent: #42b883; --accent-2: #7c74ff; --tint: rgba(66, 184, 131, 0.1); }
-    .theme-summary { --accent: #8067ff; --accent-2: #36c58a; --tint: rgba(54, 197, 138, 0.1); }
 
     .topbar {
       position: relative;
@@ -160,13 +153,13 @@
     h1 {
       margin: 14px 0 9px;
       font-family: Montserrat, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: clamp(40px, 5vw, 70px);
+      font-size: clamp(39px, 5vw, 70px);
       line-height: 1.04;
       letter-spacing: 0;
     }
 
     .summary {
-      max-width: 850px;
+      max-width: 870px;
       margin: 0;
       color: var(--muted);
       font-size: 18px;
@@ -180,20 +173,41 @@
       place-items: center;
       border-radius: 28px;
       color: white;
-      font-size: 40px;
+      font-size: 38px;
       font-weight: 950;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: 0 22px 46px rgba(17, 24, 39, 0.16);
       animation: float 4.8s ease-in-out infinite;
     }
 
-    .value-grid {
+    .value-grid,
+    .term-grid,
+    .trend-grid,
+    .job-grid {
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
       gap: 15px;
       align-items: stretch;
+    }
+
+    .value-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .term-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 126px;
+      align-items: stretch;
+      align-content: start;
+    }
+
+    .trend-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .job-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .course-grid {
@@ -203,14 +217,7 @@
       grid-template-columns: 1.45fr 0.85fr;
       gap: 18px;
       align-items: stretch;
-    }
-
-    .summary-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      min-height: 0;
     }
 
     .card {
@@ -220,28 +227,74 @@
       box-shadow: 0 12px 30px rgba(31, 44, 72, 0.08);
     }
 
-    .value-card {
-      min-height: 224px;
+    .value-card,
+    .trend-card,
+    .job-card,
+    .term-card,
+    .side-card {
       padding: 20px;
+    }
+
+    .value-card {
+      min-height: 246px;
       display: flex;
       flex-direction: column;
       gap: 13px;
     }
 
-    .value-card h2,
-    .side-card h2,
-    .curriculum h2 {
+    .trend-card,
+    .job-card {
+      min-height: 286px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .term-card {
+      min-height: 126px;
+      padding: 14px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .card h2,
+    .card h3 {
       margin: 0;
       font-size: 19px;
       line-height: 1.34;
     }
 
-    .value-card p,
-    .side-card p {
+    .card p {
       margin: 0;
       color: #344054;
+      font-size: 15.5px;
+      line-height: 1.58;
+    }
+
+    .term-card h3 {
+      margin-bottom: 6px;
+      color: var(--accent);
       font-size: 16px;
-      line-height: 1.62;
+    }
+
+    .term-card p {
+      font-size: 13.6px;
+      line-height: 1.45;
+    }
+
+    .salary {
+      margin-top: 8px;
+      color: var(--accent);
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .salary small {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 800;
     }
 
     .badge {
@@ -259,6 +312,9 @@
 
     .curriculum {
       padding: 22px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 0;
     }
 
     .section-title {
@@ -271,20 +327,23 @@
     .lesson-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
+      grid-template-rows: repeat(5, minmax(0, 1fr));
+      gap: 11px;
       margin: 0;
       padding: 0;
       list-style: none;
       counter-reset: lesson;
+      height: 100%;
+      min-height: 0;
     }
 
     .lesson-list li {
       counter-increment: lesson;
-      min-height: 54px;
+      min-height: 0;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 11px;
+      padding: 12px 12px;
       border-radius: 14px;
       color: #27364f;
       font-size: 14px;
@@ -303,11 +362,16 @@
 
     .side-stack {
       display: grid;
+      grid-template-rows: repeat(3, minmax(0, 1fr));
       gap: 14px;
+      min-height: 0;
     }
 
     .side-card {
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
     }
 
     .side-card h2 {
@@ -317,49 +381,21 @@
       margin-bottom: 12px;
     }
 
-    .salary {
-      margin-top: 8px;
-      color: var(--accent);
-      font-size: clamp(30px, 3.8vw, 46px);
-      line-height: 1;
-      font-weight: 950;
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 12px;
     }
 
-    .salary small {
-      color: var(--muted);
-      font-size: 16px;
+    .pill {
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: #27364f;
+      font-size: 13px;
       font-weight: 800;
-    }
-
-    .metric-row {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: -6px;
-    }
-
-    .metric {
-      padding: 18px 20px;
-      border-radius: 18px;
-      background: var(--card-strong);
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 28px rgba(31, 44, 72, 0.08);
-    }
-
-    .metric strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--accent);
-      font-size: 27px;
-      line-height: 1;
-    }
-
-    .metric span {
-      color: #344054;
-      font-size: 15px;
-      line-height: 1.45;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(17, 24, 39, 0.08);
     }
 
     .nav-button {
@@ -382,17 +418,17 @@
     }
 
     .nav-button:hover {
-      background: #fff;
+      background: white;
       transform: translateY(-50%) scale(1.06);
     }
 
-    .prev { left: 26px; }
-    .next { right: 26px; }
+    .prev { left: 24px; }
+    .next { right: 24px; }
 
     .footer {
       position: fixed;
       left: 50%;
-      bottom: 22px;
+      bottom: 20px;
       z-index: 10;
       display: flex;
       align-items: center;
@@ -410,7 +446,7 @@
     }
 
     .progress-track {
-      width: 168px;
+      width: 178px;
       height: 8px;
       overflow: hidden;
       border-radius: 999px;
@@ -419,13 +455,13 @@
 
     .progress-fill {
       height: 100%;
-      width: 12.5%;
+      width: 6.25%;
       border-radius: inherit;
       background: linear-gradient(90deg, var(--blue), var(--purple), var(--green));
       transition: width 220ms ease;
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1120px) {
       body {
         overflow-y: auto;
       }
@@ -447,8 +483,9 @@
       .topbar,
       .value-grid,
       .course-grid,
-      .summary-grid,
-      .metric-row {
+      .term-grid,
+      .trend-grid,
+      .job-grid {
         grid-template-columns: 1fr;
       }
 
@@ -460,10 +497,13 @@
         width: 76px;
         height: 76px;
         border-radius: 21px;
-        font-size: 30px;
+        font-size: 29px;
       }
 
-      .value-card {
+      .value-card,
+      .trend-card,
+      .job-card,
+      .term-card {
         min-height: auto;
       }
 
@@ -488,188 +528,396 @@
   </style>
 </head>
 <body>
-  <main class="deck" aria-live="polite">
-    <section class="slide theme-cover active">
-      <header class="topbar">
-        <div>
-          <div class="eyebrow">开篇页 · AI时代学习AI的价值</div>
-          <h1>AIGC 全能课程</h1>
-          <p class="summary">面向领导决策与销售展示：课程覆盖创作、编程、办公和产品管理，让学员把 AI 工具能力转化为商业级作品、真实项目经验和可讲清楚的职业价值。</p>
-        </div>
-        <div class="icon-mark" aria-hidden="true">AI</div>
-      </header>
-      <div class="value-grid">
-        <article class="card value-card"><div class="badge">01</div><h2>技能红利</h2><p>AI 渗透各行业，掌握 AI 技能抢占职场先机，形成区别于传统单项技能的复合竞争力。</p></article>
-        <article class="card value-card"><div class="badge">02</div><h2>高价值产出</h2><p>学员能直接用 AI 生成商业级作品，覆盖图片、视频、音频、软件、办公文档和产品方案。</p></article>
-        <article class="card value-card"><div class="badge">03</div><h2>职业发展</h2><p>AI 能力结合创作、编程、产品管理等技能，岗位广、薪资高，适配企业多类用人需求。</p></article>
-        <article class="card value-card"><div class="badge">04</div><h2>跨行业应用</h2><p>覆盖视觉、视频、音频、办公自动化、产品管理，可服务品牌、运营、销售和项目交付。</p></article>
-        <article class="card value-card"><div class="badge">05</div><h2>未来竞争力</h2><p>掌握 AI 工具即拥有职场核心竞争力，能持续适应新工具、新流程和新岗位要求。</p></article>
-      </div>
-    </section>
-
-    <section class="slide theme-paint">
-      <header class="topbar">
-        <div><div class="eyebrow">模块 01 · 视觉设计方向</div><h1>AI绘画</h1><p class="summary">从基础出图到商业视觉系统，训练学员独立完成品牌、广告、电商、游戏与影视概念类设计项目。</p></div>
-        <div class="icon-mark" aria-hidden="true">🎨</div>
-      </header>
-      <div class="course-grid">
-        <article class="card curriculum">
-          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
-          <ol class="lesson-list">
-            <li>图像生成基础与参数调节</li><li>风格迁移与艺术风格融合</li><li>高级光影处理与构图</li><li>色彩搭配与视觉设计原理</li><li>插画与概念艺术创作</li><li>广告海报设计</li><li>品牌视觉识别系统（VI）制作</li><li>电商 Banner 和详情页设计</li><li>游戏角色概念图设计</li><li>影视概念画创作</li><li>多风格混合与创新艺术表现</li><li>高分辨率输出与商业打印优化</li><li>角色场景整合与背景渲染</li><li>作品组合与设计集成展示</li><li>创意设计项目管理与商业落地</li>
-          </ol>
-        </article>
-        <aside class="side-stack">
-          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立完成商业级视觉设计项目，胜任品牌设计、广告设计、游戏 / 影视概念设计。</p></article>
-          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接视觉设计师、品牌设计师、游戏 / 影视概念设计师等岗位。</p></article>
-          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">5k-15k <small>/ 月</small></div></article>
-        </aside>
-      </div>
-    </section>
-
-    <section class="slide theme-video">
-      <header class="topbar">
-        <div><div class="eyebrow">模块 02 · 商业视频方向</div><h1>AI视频</h1><p class="summary">覆盖分镜、生成、剪辑、特效和成片输出，帮助学员完成宣传短片、剧情漫剧或 MV 级视觉短视频。</p></div>
-        <div class="icon-mark" aria-hidden="true">▶</div>
-      </header>
-      <div class="course-grid">
-        <article class="card curriculum">
-          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
-          <ol class="lesson-list">
-            <li>短视频生成基础与参数设置</li><li>视频剪辑基础操作</li><li>动作捕捉与骨骼动画</li><li>漫剧场景设计与制作</li><li>视频分镜设计与故事板规划</li><li>镜头切换与转场效果</li><li>字幕生成与自动排版</li><li>音频与视频同步处理</li><li>特效添加与视频风格化</li><li>多场景视频整合</li><li>商业广告短片制作</li><li>30秒–1分钟视频成片输出</li><li>MV风格视频制作</li><li>视频色彩与光影校正</li><li>视频项目整体规划与输出</li>
-          </ol>
-        </article>
-        <aside class="side-stack">
-          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立制作商业宣传短片、剧情漫剧或 MV，完成分镜、剪辑、特效和成片输出。</p></article>
-          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接视频制作师、动画制作师、短视频导演助理等岗位。</p></article>
-          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">6k-18k <small>/ 月</small></div></article>
-        </aside>
-      </div>
-    </section>
-
-    <section class="slide theme-audio">
-      <header class="topbar">
-        <div><div class="eyebrow">模块 03 · 声音内容方向</div><h1>AI音乐/声音</h1><p class="summary">训练配乐、配音、语音克隆、数字人语音与音效整合能力，让视频和广告具备完整听觉表现力。</p></div>
-        <div class="icon-mark" aria-hidden="true">♪</div>
-      </header>
-      <div class="course-grid">
-        <article class="card curriculum">
-          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
-          <ol class="lesson-list">
-            <li>背景音乐生成基础</li><li>音乐风格选择与混音技巧</li><li>多轨音频编辑</li><li>音效设计基础</li><li>AI配音基础</li><li>语音克隆与人物声音模拟</li><li>情感语音输出</li><li>数字人语音生成</li><li>视频配音与音效整合</li><li>音频剪辑与后期处理</li><li>自动混音与风格化处理</li><li>商业广告音频制作</li><li>音乐与视频同步处理</li><li>音效创新与创意设计</li><li>音频项目整体管理与输出</li>
-          </ol>
-        </article>
-        <aside class="side-stack">
-          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立完成短视频 / 广告音效、配乐和配音，能交付完整音频方案。</p></article>
-          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>胜任音效设计师、配音师、虚拟数字人音频制作岗位。</p></article>
-          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">5k-15k <small>/ 月</small></div></article>
-        </aside>
-      </div>
-    </section>
-
-    <section class="slide theme-code">
-      <header class="topbar">
-        <div><div class="eyebrow">模块 04 · 软件开发方向</div><h1>AI编程</h1><p class="summary">通过 AI 辅助开发，把网页、小程序、工具 APP、可视化和部署上线串成完整产品级开发流程。</p></div>
-        <div class="icon-mark" aria-hidden="true">&lt;/&gt;</div>
-      </header>
-      <div class="course-grid">
-        <article class="card curriculum">
-          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
-          <ol class="lesson-list">
-            <li>HTML/CSS基础与页面结构</li><li>JavaScript交互实现</li><li>前端布局与响应式设计</li><li>小程序开发基础</li><li>工具类APP开发基础</li><li>数据处理与前端可视化</li><li>动态页面功能实现</li><li>AI接口调用与整合</li><li>API数据处理与展示</li><li>用户交互与表单处理</li><li>简单小游戏开发</li><li>小型工具自动化实现</li><li>网站/APP部署与上线</li><li>用户体验优化</li><li>项目开发流程管理</li>
-          </ol>
-        </article>
-        <aside class="side-stack">
-          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立开发可交互网站、小程序或工具类 APP，并具备上线交付意识。</p></article>
-          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可胜任前端开发或初级软件开发岗位，适合转向技术型职业发展。</p></article>
-          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">6k-20k <small>/ 月</small></div></article>
-        </aside>
-      </div>
-    </section>
-
-    <section class="slide theme-office">
-      <header class="topbar">
-        <div><div class="eyebrow">模块 05 · 企业效率方向</div><h1>AI办公</h1><p class="summary">围绕企业真实办公流程，训练文档、PPT、数据、图表、报告和文案的自动化产出能力。</p></div>
-        <div class="icon-mark" aria-hidden="true">▦</div>
-      </header>
-      <div class="course-grid">
-        <article class="card curriculum">
-          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
-          <ol class="lesson-list">
-            <li>文档生成与自动排版</li><li>PPT自动化制作</li><li>数据整理与清洗</li><li>Excel高级公式应用</li><li>数据分析基础</li><li>可视化图表生成</li><li>数据分析报告编写</li><li>高级文案生成与优化</li><li>内容风格多样化输出</li><li>批量处理文档和文本</li><li>自动生成工作总结</li><li>项目报告与演示文稿制作</li><li>企业营销文案生成</li><li>文档和报告视觉优化</li><li>办公自动化流程设计</li>
-          </ol>
-        </article>
-        <aside class="side-stack">
-          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立产出企业级文档、PPT、报表和文案，提高办公效率并输出商业成果。</p></article>
-          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接数据分析助理、内容策划、企业运营助理等岗位。</p></article>
-          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">5k-15k <small>/ 月</small></div></article>
-        </aside>
-      </div>
-    </section>
-
-    <section class="slide theme-pm">
-      <header class="topbar">
-        <div><div class="eyebrow">模块 06 · 产品管理方向</div><h1>AI产品经理</h1><p class="summary">以产品全流程为主线，训练从需求分析、竞品研究、原型设计到迭代规划和项目交付的完整能力。</p></div>
-        <div class="icon-mark" aria-hidden="true">◆</div>
-      </header>
-      <div class="course-grid">
-        <article class="card curriculum">
-          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
-          <ol class="lesson-list">
-            <li>BRD文档编写</li><li>MRD文档分析</li><li>PRD文档撰写</li><li>DRD设计流程</li><li>用户调研方法</li><li>竞品分析技巧</li><li>产品功能列表设计</li><li>原型设计基础</li><li>原型交互优化</li><li>功能迭代规划</li><li>优先级评估与决策</li><li>产品路线图设计</li><li>AI辅助文档生成</li><li>团队协作与项目管理</li><li>产品交付与项目总结</li>
-          </ol>
-        </article>
-        <aside class="side-stack">
-          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立完成 AI 产品全流程规划和交付，胜任初级到中级 AI 产品经理岗位。</p></article>
-          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接产品经理助理、AI 产品经理等岗位，适合进入 AI 应用产品团队。</p></article>
-          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">8k-20k <small>/ 月</small></div></article>
-        </aside>
-      </div>
-    </section>
-
-    <section class="slide theme-summary">
-      <header class="topbar">
-        <div>
-          <div class="eyebrow">总结页 · 课程优势与职业价值</div>
-          <h1>学完即可参与真实项目</h1>
-          <p class="summary">AIGC 全能课程的核心价值，是把零基础学员培养成能产出作品、能服务项目、能匹配岗位的复合型 AI 应用人才。</p>
-        </div>
-        <div class="icon-mark" aria-hidden="true">↗</div>
-      </header>
-      <div class="summary-grid">
-        <article class="card value-card"><div class="badge">01</div><h2>课程优势清晰</h2><p>零基础入门，项目制训练，高端作品输出，形成可销售、可汇报、可展示的课程闭环。</p></article>
-        <article class="card value-card"><div class="badge">02</div><h2>多模态能力覆盖</h2><p>绘画、视频、音频、编程、办公、产品管理六大方向，覆盖企业真实应用场景。</p></article>
-        <article class="card value-card"><div class="badge">03</div><h2>职业价值明确</h2><p>每个模块都对应岗位、薪资和能力结果，便于销售讲解，也便于领导判断投入价值。</p></article>
-        <article class="card value-card"><div class="badge">04</div><h2>项目交付导向</h2><p>学完可参与品牌视觉、广告短片、数字人音频、Web 工具、办公自动化和 AI 产品方案。</p></article>
-      </div>
-      <div class="metric-row">
-        <div class="metric"><strong>6大方向</strong><span>覆盖内容生产、软件开发、企业效率与产品管理。</span></div>
-        <div class="metric"><strong>90项内容</strong><span>每个模块 15 条教学内容，体系完整，颗粒度清晰。</span></div>
-        <div class="metric"><strong>5k-20k/月</strong><span>呈现从入门到进阶岗位的职业前景和薪资价值。</span></div>
-      </div>
-    </section>
-  </main>
+  <main class="deck" id="deck" aria-live="polite"></main>
 
   <button class="nav-button prev" type="button" aria-label="上一页">‹</button>
   <button class="nav-button next" type="button" aria-label="下一页">›</button>
 
   <footer class="footer">
-    <span id="pageText">1 / 8</span>
+    <span id="pageText">1 / 16</span>
     <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
     <span>键盘 ← → 切换</span>
   </footer>
 
   <script>
-    const slides = Array.from(document.querySelectorAll(".slide"));
-    const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
+    const courseSlides = [
+      {
+        type: "cover",
+        theme: ["#4f8cff", "#8067ff", "rgba(128, 103, 255, 0.1)"],
+        eyebrow: "开篇页 · AI时代学习AI的价值",
+        title: "AIGC 全能课程",
+        icon: "AI",
+        summary: "面向领导决策与销售展示：课程覆盖模块能力、AI专业术语、行业趋势与就业方向，帮助学员把 AI 工具能力转化为商业级作品、真实项目经验和职业竞争力。",
+        values: [
+          ["技能红利", "AI 正在从单点工具变成行业基础设施，设计、营销、运营、研发、产品等岗位都在重构工作流程。越早掌握 AI，越能在效率、作品质量和岗位竞争中建立先发优势。"],
+          ["高价值产出", "课程不只讲工具操作，而是围绕商业作品交付训练：海报、短片、配音、网站、报表、PRD 等都能形成可展示、可复用、可服务客户的成果。"],
+          ["职业发展", "AI 能力可以叠加创作、编程、办公和产品管理，帮助学员从执行型岗位升级为复合型人才，覆盖更广岗位选择，也更容易体现薪资议价能力。"],
+          ["跨行业应用", "视觉、电商、短视频、数字人、企业办公、数据分析、产品规划都能落地 AI，课程适合个人就业，也适合企业内部提效和业务团队升级。"],
+          ["未来竞争力", "未来职场比拼的不只是会不会某个软件，而是能否用 AI 拆解任务、组织流程、快速试错并稳定交付。掌握这套能力，就具备持续迁移的核心竞争力。"]
+        ]
+      },
+      {
+        type: "course",
+        theme: ["#ec6f9f", "#ffc857", "rgba(236, 111, 159, 0.1)"],
+        eyebrow: "课程模块 01 · 视觉设计方向",
+        title: "AI绘画",
+        icon: "🎨",
+        summary: "从基础出图到商业视觉系统，训练学员独立完成品牌、广告、电商、游戏与影视概念类设计项目。",
+        lessons: ["图像生成基础", "风格迁移", "光影处理", "色彩搭配", "插画创作", "广告海报设计", "品牌VI制作", "电商Banner设计", "游戏角色概念图", "影视概念画", "多风格融合", "高分辨率输出", "场景整合", "作品组合", "创意项目管理"],
+        ability: "能够从需求分析、风格定位、提示词设计到成图优化、版式整合和作品集呈现，独立完成商业级视觉设计项目，并具备品牌、电商、广告与概念设计的交付意识。",
+        jobs: ["AI视觉设计师", "品牌设计师", "广告设计师", "电商美工/视觉设计", "游戏角色概念设计", "影视概念设计助理", "插画师", "新媒体视觉设计"],
+        salary: "5k-15k/月"
+      },
+      {
+        type: "course",
+        theme: ["#4f8cff", "#8067ff", "rgba(79, 140, 255, 0.1)"],
+        eyebrow: "课程模块 02 · 商业视频方向",
+        title: "AI视频",
+        icon: "▶",
+        summary: "覆盖分镜、生成、剪辑、特效和成片输出，帮助学员完成宣传短片、剧情漫剧或 MV 级视觉短视频。",
+        lessons: ["短视频生成", "视频剪辑", "动作捕捉", "漫剧制作", "分镜设计", "镜头切换", "字幕生成", "音频同步", "特效添加", "多场景整合", "广告短片制作", "1分钟成片输出", "MV制作", "视频色彩校正", "项目规划"],
+        ability: "能够完成从脚本分镜、素材生成、镜头组接、字幕包装、音画同步到成片输出的完整流程，独立制作商业宣传短片、剧情漫剧、账号短视频或 MV 风格作品。",
+        jobs: ["AI视频制作师", "视频剪辑师", "短视频内容创作者", "动画制作助理", "漫剧制作师", "信息流广告视频设计", "短视频导演助理", "数字内容运营"],
+        salary: "6k-18k/月"
+      },
+      {
+        type: "course",
+        theme: ["#25b7a7", "#36c58a", "rgba(37, 183, 167, 0.1)"],
+        eyebrow: "课程模块 03 · 声音内容方向",
+        title: "AI音乐/声音",
+        icon: "♪",
+        summary: "训练配乐、配音、语音克隆、数字人语音与音效整合能力，让视频和广告具备完整听觉表现力。",
+        lessons: ["背景音乐生成", "风格选择", "混音", "多轨编辑", "音效设计", "AI配音", "语音克隆", "情感语音", "数字人语音", "视频配音整合", "剪辑处理", "自动混音", "广告音频制作", "同步处理", "音效创新"],
+        ability: "能够围绕广告、短视频、数字人和剧情内容完成配乐、音效、配音、语音克隆与后期混音，让作品具备完整的听觉层次和商业呈现质量。",
+        jobs: ["AI配音师", "音效设计师", "短视频音频制作", "数字人语音制作", "广告音频制作", "播客/课程音频剪辑", "音乐内容编辑", "虚拟角色声音设计"],
+        salary: "5k-15k/月"
+      },
+      {
+        type: "course",
+        theme: ["#536dfe", "#36c58a", "rgba(83, 109, 254, 0.1)"],
+        eyebrow: "课程模块 04 · 软件开发方向",
+        title: "AI编程",
+        icon: "</>",
+        summary: "通过 AI 辅助开发，把网页、小程序、工具 APP、可视化和部署上线串成完整产品级开发流程。",
+        lessons: ["HTML/CSS基础", "JS交互", "前端布局", "响应式设计", "小程序开发", "工具类APP开发", "数据处理", "动态功能", "AI接口整合", "API处理", "用户交互", "小游戏开发", "自动化工具实现", "部署上线", "项目流程管理"],
+        ability: "能够借助 AI 完成需求拆解、页面搭建、交互实现、接口调用、调试测试和部署上线，独立开发可使用的网站、小程序或工具类 APP。",
+        jobs: ["前端开发工程师", "AI应用开发助理", "工具开发工程师", "小程序开发", "低代码/自动化开发", "Web产品原型开发", "数据可视化开发", "初级软件开发"],
+        salary: "6k-20k/月"
+      },
+      {
+        type: "course",
+        theme: ["#f5a524", "#48b6ff", "rgba(245, 165, 36, 0.11)"],
+        eyebrow: "课程模块 05 · 企业效率方向",
+        title: "AI办公",
+        icon: "▦",
+        summary: "围绕企业真实办公流程，训练文档、PPT、数据、图表、报告和文案的自动化产出能力。",
+        lessons: ["文档生成", "自动排版", "PPT制作", "数据清洗", "Excel公式", "数据分析", "可视化", "分析报告", "高级文案", "多风格输出", "批量处理", "工作总结", "项目报告", "企业营销文案", "办公自动化流程"],
+        ability: "能够把会议记录、业务数据、销售材料和营销需求快速转化为企业级文档、PPT、报表、分析结论和可直接使用的商业文案。",
+        jobs: ["AI办公专员", "数据分析助理", "内容策划", "企业运营助理", "销售支持/商务助理", "行政文档专员", "新媒体文案", "职场效率顾问"],
+        salary: "5k-15k/月"
+      },
+      {
+        type: "course",
+        theme: ["#42b883", "#7c74ff", "rgba(66, 184, 131, 0.1)"],
+        eyebrow: "课程模块 06 · 产品管理方向",
+        title: "AI产品经理",
+        icon: "◆",
+        summary: "以产品全流程为主线，训练从需求分析、竞品研究、原型设计到迭代规划和项目交付的完整能力。",
+        lessons: ["BRD", "MRD", "PRD", "DRD", "用户调研", "竞品分析", "功能列表", "原型设计", "原型交互", "功能迭代", "优先级决策", "路线图", "AI文档辅助", "团队协作", "产品交付"],
+        ability: "能够围绕 AI 应用完成用户调研、竞品分析、需求文档、原型设计、迭代规划、团队协作和项目复盘，具备初级到中级产品岗位的完整工作方法。",
+        jobs: ["AI产品经理", "产品经理助理", "产品策划", "AI应用产品专员", "项目经理助理", "需求分析师", "B端产品助理", "运营产品专员"],
+        salary: "8k-20k/月"
+      }
+    ];
+
+    const termLevels = [
+      {
+        level: "LV1",
+        subtitle: "入门概念：先看懂 AI 工具怎么用",
+        terms: [
+          ["AI", "人工智能，让机器完成理解、生成、分析和决策等任务。"],
+          ["Chat box", "聊天输入框，用户向 AI 提问和下达任务的入口。"],
+          ["联网搜索", "AI 调用互联网检索最新信息，补充模型自身知识。"],
+          ["对话历史", "当前或历史聊天记录，帮助 AI 理解上下文。"]
+        ]
+      },
+      {
+        level: "LV2",
+        subtitle: "工具使用：理解 AIGC 应用的核心操作",
+        terms: [
+          ["Prompt", "给 AI 的指令，决定输出方向、格式和质量。"],
+          ["模型", "AI 的能力核心，负责理解输入并生成结果。"],
+          ["模型版本", "同一模型的不同迭代，能力、速度和成本可能不同。"],
+          ["模型类型", "按用途区分，如文本、图像、音频、视频、多模态模型。"],
+          ["AI应用", "把模型能力包装成可直接使用的软件或工具。"],
+          ["AIGC", "AI Generated Content，AI 生成图片、视频、文本、音乐等内容。"],
+          ["Context", "上下文，AI 当前参考的信息范围。"],
+          ["Memory", "记忆，让 AI 保存偏好、背景或长期信息。"],
+          ["深度思考", "让模型花更多步骤分析复杂问题。"],
+          ["推理", "模型根据已有信息一步步得出结论。"],
+          ["RAG-知识库", "检索增强生成，让 AI 先查资料再回答。"],
+          ["插件", "扩展 AI 能力的工具，如搜索、文件、日历等。"],
+          ["多模态", "同时处理文字、图片、音频、视频等多种信息。"]
+        ]
+      },
+      {
+        level: "LV3",
+        subtitle: "模型机制：知道 AI 输出为什么会好或不好",
+        terms: [
+          ["LLM", "Large Language Model，大语言模型，擅长文本理解与生成。"],
+          ["开源/闭源", "开源可查看和部署模型；闭源通常由平台托管使用。"],
+          ["幻觉", "AI 编造看似合理但不准确的信息。"],
+          ["System Prompt", "系统级指令，规定 AI 的角色、边界和行为方式。"],
+          ["温度", "控制输出随机性；温度越高越发散，越低越稳定。"],
+          ["Token", "模型处理文本的基本单位，影响长度和成本。"],
+          ["Markdown", "轻量排版格式，常用于生成结构化文档。"],
+          ["提示词工程", "设计和优化 Prompt 的方法，提高 AI 输出质量。"]
+        ]
+      },
+      {
+        level: "LV4",
+        subtitle: "应用架构：从会用工具到能设计流程",
+        terms: [
+          ["AGI", "通用人工智能，理论上能像人一样处理广泛任务。"],
+          ["涌现", "模型规模提升后出现的新能力。"],
+          ["2B/2C", "2B 面向企业客户；2C 面向个人用户。"],
+          ["AI Native", "以 AI 为核心重新设计产品，而不是简单加 AI 功能。"],
+          ["Agent", "能自主规划、调用工具并完成任务的 AI 智能体。"],
+          ["工作流", "把多个步骤、工具和判断串成稳定执行流程。"],
+          ["Vibe Coding", "用自然语言和 AI 协作快速写代码、改产品。"],
+          ["API", "软件之间调用能力的接口。"],
+          ["API Key", "调用 API 的密钥，用于身份认证和计费。"],
+          ["Error", "错误信息，帮助定位代码、接口或流程问题。"]
+        ]
+      },
+      {
+        level: "LV5",
+        subtitle: "开发协作：理解 AI 应用落地的技术语言",
+        terms: [
+          ["HTML", "网页结构语言，定义页面内容和层级。"],
+          ["前端", "用户看到和交互的界面部分。"],
+          ["后端", "负责数据、权限、接口和业务逻辑的服务部分。"],
+          ["Debug/调试", "查找并修复错误的过程。"],
+          ["Test/测试", "验证功能是否按预期运行。"],
+          ["MCP", "Model Context Protocol，让 AI 标准化连接工具和数据源。"],
+          ["Skill", "封装好的能力说明或工作流，让 AI 更稳定执行任务。"],
+          ["微调/训练", "用特定数据优化模型，使其更适合某类任务。"]
+        ]
+      },
+      {
+        level: "LV6",
+        subtitle: "运行部署：让作品真正跑起来",
+        terms: [
+          ["Terminal/终端", "用命令操作电脑和开发环境的工具。"],
+          ["命令", "给系统执行的文本指令，如启动服务、安装依赖。"],
+          ["环境变量/.env", "保存密钥、配置和运行参数的方式。"],
+          ["服务器", "运行网站、接口或 AI 应用的远程电脑。"],
+          ["端口", "服务对外通信的入口编号，如 3000、8080。"]
+        ]
+      },
+      {
+        level: "LV7",
+        subtitle: "底层认知：看懂 AI 行业基础设施",
+        terms: [
+          ["神经网络", "模拟神经连接的计算结构，是现代 AI 的基础。"],
+          ["参数", "模型内部学习到的数值，规模越大通常能力越强但成本更高。"],
+          ["AI三要素", "算法、数据、算力，共同决定 AI 能力上限。"],
+          ["预训练", "用海量通用数据训练模型基础能力。"],
+          ["后训练", "在预训练后做对齐、强化和任务优化。"],
+          ["蒸馏", "用大模型教小模型，让小模型更轻更快。"],
+          ["算力", "训练和运行模型所需的计算能力。"],
+          ["数据中心", "集中部署服务器、芯片和网络的 AI 基础设施。"]
+        ]
+      }
+    ];
+
+    const extraSlides = [
+      {
+        type: "trends",
+        theme: ["#4f8cff", "#36c58a", "rgba(79, 140, 255, 0.1)"],
+        eyebrow: "行业发展趋势",
+        title: "AI 正在成为新型生产力",
+        icon: "↗",
+        summary: "生成式 AI 的价值不再停留在概念层，而是进入企业降本增效、内容生产、客户增长、软件研发和产品创新的核心流程。对培训课程来说，关键不是追热点，而是建立可迁移的 AI 应用能力。",
+        items: [
+          ["生成式AI快速发展", "从文本生成扩展到图像、视频、音频、代码和数据分析，AI 已经进入营销、电商、教育、影视、办公和软件研发等场景，企业对“能直接产出结果”的人才需求明显增加。"],
+          ["多模态AI能力增强", "文字、图片、音频、视频正在被统一理解和生成。一个人可以完成过去需要文案、设计、剪辑、配音、开发协作完成的部分工作，岗位边界正在被重新定义。"],
+          ["Prompt工程与工具化", "未来不是单纯会聊天，而是会拆任务、写指令、搭流程、控质量。Prompt、工作流、模板化工具和自动化脚本会成为高效率人才的标准能力。"],
+          ["企业级应用增长", "企业开始把 AI 接入知识库、客服、销售、培训、报表和产品流程。RAG、Memory、Agent 等能力让 AI 从“问答工具”升级为“业务流程助手”。"],
+          ["AI人才需求增加", "市场需要懂业务、懂工具、懂交付的人。既能操作 AI，又能理解内容、数据、产品或开发流程的人，会比只掌握单一软件的人更有竞争力。"]
+        ]
+      },
+      {
+        type: "jobs",
+        theme: ["#8067ff", "#ffc857", "rgba(128, 103, 255, 0.1)"],
+        eyebrow: "就业方向",
+        title: "四类岗位路径，可讲清楚的就业价值",
+        icon: "◎",
+        summary: "就业不是只列岗位名称，而是要讲清楚岗位场景、能力要求和课程输出之间的对应关系。课程覆盖创意、技术、办公和产品四条路径，便于不同基础的学员选择方向。",
+        items: [
+          ["AI创意方向", "AI视觉设计师、品牌设计师、广告设计师、电商美工、插画师、视频剪辑师、漫剧制作师、音效设计师、AI内容创作者、数字人内容制作。"],
+          ["AI技术方向", "前端开发工程师、工具开发工程师、小程序开发、AI应用开发助理、Prompt工程师、自动化流程搭建、数据可视化开发、低代码开发专员。"],
+          ["AI办公方向", "数据分析助理、内容策划、企业运营助理、销售支持、行政文档专员、新媒体文案、项目报告专员、AI办公效率顾问。"],
+          ["产品管理方向", "AI产品经理、产品经理助理、产品策划、需求分析师、B端产品助理、AI应用产品专员、项目经理助理、运营产品专员。"]
+        ]
+      }
+    ];
+
+    const slides = [
+      ...courseSlides,
+      ...termLevels.map((level, index) => ({
+        type: "terms",
+        theme: [
+          ["#4f8cff", "#8067ff", "rgba(79, 140, 255, 0.1)"],
+          ["#8067ff", "#36c58a", "rgba(128, 103, 255, 0.1)"],
+          ["#25b7a7", "#4f8cff", "rgba(37, 183, 167, 0.1)"],
+          ["#f5a524", "#8067ff", "rgba(245, 165, 36, 0.11)"],
+          ["#536dfe", "#36c58a", "rgba(83, 109, 254, 0.1)"],
+          ["#42b883", "#48b6ff", "rgba(66, 184, 131, 0.1)"],
+          ["#ec6f9f", "#ffc857", "rgba(236, 111, 159, 0.1)"]
+        ][index],
+        eyebrow: `AI专业术语 · ${level.level}`,
+        title: `${level.level} 术语地图`,
+        icon: level.level,
+        summary: level.subtitle,
+        terms: level.terms
+      })),
+      ...extraSlides
+    ];
+
+    const deck = document.getElementById("deck");
     const pageText = document.getElementById("pageText");
     const progressFill = document.getElementById("progressFill");
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
     let currentIndex = 0;
+
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function header(slide) {
+      return `
+        <header class="topbar">
+          <div>
+            <div class="eyebrow">${escapeHtml(slide.eyebrow)}</div>
+            <h1>${escapeHtml(slide.title)}</h1>
+            <p class="summary">${escapeHtml(slide.summary)}</p>
+          </div>
+          <div class="icon-mark" aria-hidden="true">${escapeHtml(slide.icon)}</div>
+        </header>
+      `;
+    }
+
+    function renderCover(slide) {
+      return `
+        <div class="value-grid">
+          ${slide.values.map((item, index) => `
+            <article class="card value-card">
+              <div class="badge">${String(index + 1).padStart(2, "0")}</div>
+              <h2>${escapeHtml(item[0])}</h2>
+              <p>${escapeHtml(item[1])}</p>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderCourse(slide) {
+      return `
+        <div class="course-grid">
+          <article class="card curriculum">
+            <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
+            <ol class="lesson-list">
+              ${slide.lessons.map((lesson) => `<li>${escapeHtml(lesson)}</li>`).join("")}
+            </ol>
+          </article>
+          <aside class="side-stack">
+            <article class="card side-card">
+              <h2><span class="badge">能</span>学员最终能力</h2>
+              <p>${escapeHtml(slide.ability)}</p>
+            </article>
+            <article class="card side-card">
+              <h2><span class="badge">岗</span>就业连接</h2>
+              <p>岗位覆盖从助理执行到项目交付型岗位，既能面向零基础转型，也能支持在职人员做技能升级。</p>
+              <div class="pill-list">${slide.jobs.map((job) => `<span class="pill">${escapeHtml(job)}</span>`).join("")}</div>
+            </article>
+            <article class="card side-card">
+              <h2><span class="badge">薪</span>参考薪资</h2>
+              <p>结合行业初级到中级岗位区间，用于销售讲解和学员职业预期沟通。</p>
+              <div class="salary">${escapeHtml(slide.salary)}</div>
+            </article>
+          </aside>
+        </div>
+      `;
+    }
+
+    function renderTerms(slide) {
+      return `
+        <div class="term-grid">
+          ${slide.terms.map((term) => `
+            <article class="card term-card">
+              <h3>${escapeHtml(term[0])}</h3>
+              <p>${escapeHtml(term[1])}</p>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderTrends(slide) {
+      return `
+        <div class="trend-grid">
+          ${slide.items.map((item, index) => `
+            <article class="card trend-card">
+              <div class="badge">${String(index + 1).padStart(2, "0")}</div>
+              <h2>${escapeHtml(item[0])}</h2>
+              <p>${escapeHtml(item[1])}</p>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderJobs(slide) {
+      return `
+        <div class="job-grid">
+          ${slide.items.map((item, index) => `
+            <article class="card job-card">
+              <div class="badge">${String(index + 1).padStart(2, "0")}</div>
+              <h2>${escapeHtml(item[0])}</h2>
+              <p>${escapeHtml(item[1])}</p>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderSlideBody(slide) {
+      if (slide.type === "cover") return renderCover(slide);
+      if (slide.type === "course") return renderCourse(slide);
+      if (slide.type === "terms") return renderTerms(slide);
+      if (slide.type === "trends") return renderTrends(slide);
+      return renderJobs(slide);
+    }
+
+    function mountSlides() {
+      deck.innerHTML = slides.map((slide, index) => `
+        <section class="slide${index === 0 ? " active" : ""}" style="--accent:${slide.theme[0]};--accent-2:${slide.theme[1]};--tint:${slide.theme[2]};">
+          ${header(slide)}
+          ${renderSlideBody(slide)}
+        </section>
+      `).join("");
+    }
 
     function renderSlide(index) {
       currentIndex = (index + slides.length) % slides.length;
-      slides.forEach((slide, slideIndex) => {
+      document.querySelectorAll(".slide").forEach((slide, slideIndex) => {
         slide.classList.toggle("active", slideIndex === currentIndex);
       });
       pageText.textContent = `${currentIndex + 1} / ${slides.length}`;
@@ -683,6 +931,7 @@
       if (event.key === "ArrowRight") renderSlide(currentIndex + 1);
     });
 
+    mountSlides();
     renderSlide(0);
   </script>
 </body>
