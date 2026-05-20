@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIGC 全能课程展示 PPT</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #667085;
+      --line: rgba(17, 24, 39, 0.1);
+      --card: rgba(255, 255, 255, 0.82);
+      --card-strong: rgba(255, 255, 255, 0.94);
+      --shadow: 0 28px 80px rgba(31, 41, 55, 0.18);
+      --blue: #4f8cff;
+      --purple: #8067ff;
+      --green: #36c58a;
+      --yellow: #ffc857;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      color: var(--ink);
+      font-family: "Noto Sans SC", "Roboto", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 14%, rgba(79, 140, 255, 0.24), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(128, 103, 255, 0.2), transparent 28%),
+        linear-gradient(135deg, #f6f9ff 0%, #fbf7ff 48%, #f2fbf8 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.66), transparent 78%);
+    }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 88px;
+    }
+
+    .slide {
+      --accent: var(--blue);
+      --accent-2: var(--purple);
+      --tint: rgba(79, 140, 255, 0.09);
+      position: absolute;
+      width: min(1220px, calc(100vw - 176px));
+      min-height: min(700px, calc(100vh - 96px));
+      display: none;
+      grid-template-rows: auto 1fr;
+      gap: 22px;
+      padding: 38px;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.69)),
+        linear-gradient(135deg, var(--tint), transparent 58%);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      animation: enter 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .slide.active {
+      display: grid;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      right: -58px;
+      bottom: -74px;
+      width: 310px;
+      height: 310px;
+      border-radius: 78px;
+      opacity: 0.1;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      transform: rotate(15deg);
+      pointer-events: none;
+    }
+
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .theme-cover { --accent: #4f8cff; --accent-2: #8067ff; --tint: rgba(128, 103, 255, 0.1); }
+    .theme-paint { --accent: #ec6f9f; --accent-2: #ffc857; --tint: rgba(236, 111, 159, 0.1); }
+    .theme-video { --accent: #4f8cff; --accent-2: #8067ff; --tint: rgba(79, 140, 255, 0.1); }
+    .theme-audio { --accent: #25b7a7; --accent-2: #36c58a; --tint: rgba(37, 183, 167, 0.1); }
+    .theme-code { --accent: #536dfe; --accent-2: #36c58a; --tint: rgba(83, 109, 254, 0.1); }
+    .theme-office { --accent: #f5a524; --accent-2: #48b6ff; --tint: rgba(245, 165, 36, 0.11); }
+    .theme-pm { --accent: #42b883; --accent-2: #7c74ff; --tint: rgba(66, 184, 131, 0.1); }
+    .theme-summary { --accent: #8067ff; --accent-2: #36c58a; --tint: rgba(54, 197, 138, 0.1); }
+
+    .topbar {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: #344054;
+      font-size: 14px;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    h1 {
+      margin: 14px 0 9px;
+      font-family: Montserrat, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: clamp(40px, 5vw, 70px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .summary {
+      max-width: 850px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .icon-mark {
+      width: 104px;
+      height: 104px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      color: white;
+      font-size: 40px;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 22px 46px rgba(17, 24, 39, 0.16);
+      animation: float 4.8s ease-in-out infinite;
+    }
+
+    .value-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      align-items: stretch;
+    }
+
+    .course-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.45fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .summary-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(31, 44, 72, 0.08);
+    }
+
+    .value-card {
+      min-height: 224px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .value-card h2,
+    .side-card h2,
+    .curriculum h2 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.34;
+    }
+
+    .value-card p,
+    .side-card p {
+      margin: 0;
+      color: #344054;
+      font-size: 16px;
+      line-height: 1.62;
+    }
+
+    .badge {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 11px;
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .curriculum {
+      padding: 22px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .lesson-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: lesson;
+    }
+
+    .lesson-list li {
+      counter-increment: lesson;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 11px;
+      border-radius: 14px;
+      color: #27364f;
+      font-size: 14px;
+      line-height: 1.34;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(17, 24, 39, 0.075);
+    }
+
+    .lesson-list li::before {
+      content: counter(lesson, decimal-leading-zero);
+      color: var(--accent);
+      font-weight: 950;
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .side-card {
+      padding: 20px;
+    }
+
+    .side-card h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .salary {
+      margin-top: 8px;
+      color: var(--accent);
+      font-size: clamp(30px, 3.8vw, 46px);
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .salary small {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .metric-row {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: -6px;
+    }
+
+    .metric {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(31, 44, 72, 0.08);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: #344054;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .nav-button {
+      position: fixed;
+      top: 50%;
+      z-index: 10;
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: #172033;
+      font-size: 30px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 14px 36px rgba(23, 32, 51, 0.16);
+      transform: translateY(-50%);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .nav-button:hover {
+      background: #fff;
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .prev { left: 26px; }
+    .next { right: 26px; }
+
+    .footer {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: #344054;
+      font-size: 14px;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      box-shadow: 0 14px 34px rgba(23, 32, 51, 0.11);
+      transform: translateX(-50%);
+      backdrop-filter: blur(14px);
+    }
+
+    .progress-track {
+      width: 168px;
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(23, 32, 51, 0.1);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 12.5%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--purple), var(--green));
+      transition: width 220ms ease;
+    }
+
+    @media (max-width: 1100px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .deck {
+        min-height: 100vh;
+        height: auto;
+        padding: 22px 18px 94px;
+      }
+
+      .slide {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 26px;
+        border-radius: 22px;
+      }
+
+      .topbar,
+      .value-grid,
+      .course-grid,
+      .summary-grid,
+      .metric-row {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-list {
+        grid-template-columns: 1fr;
+      }
+
+      .icon-mark {
+        width: 76px;
+        height: 76px;
+        border-radius: 21px;
+        font-size: 30px;
+      }
+
+      .value-card {
+        min-height: auto;
+      }
+
+      .nav-button {
+        top: auto;
+        bottom: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+        transform: none;
+      }
+
+      .nav-button:hover {
+        transform: none;
+      }
+
+      .prev { left: 18px; }
+      .next { right: 18px; }
+      .footer { bottom: 20px; }
+      .progress-track { width: 92px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-live="polite">
+    <section class="slide theme-cover active">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">开篇页 · AI时代学习AI的价值</div>
+          <h1>AIGC 全能课程</h1>
+          <p class="summary">面向领导决策与销售展示：课程覆盖创作、编程、办公和产品管理，让学员把 AI 工具能力转化为商业级作品、真实项目经验和可讲清楚的职业价值。</p>
+        </div>
+        <div class="icon-mark" aria-hidden="true">AI</div>
+      </header>
+      <div class="value-grid">
+        <article class="card value-card"><div class="badge">01</div><h2>技能红利</h2><p>AI 渗透各行业，掌握 AI 技能抢占职场先机，形成区别于传统单项技能的复合竞争力。</p></article>
+        <article class="card value-card"><div class="badge">02</div><h2>高价值产出</h2><p>学员能直接用 AI 生成商业级作品，覆盖图片、视频、音频、软件、办公文档和产品方案。</p></article>
+        <article class="card value-card"><div class="badge">03</div><h2>职业发展</h2><p>AI 能力结合创作、编程、产品管理等技能，岗位广、薪资高，适配企业多类用人需求。</p></article>
+        <article class="card value-card"><div class="badge">04</div><h2>跨行业应用</h2><p>覆盖视觉、视频、音频、办公自动化、产品管理，可服务品牌、运营、销售和项目交付。</p></article>
+        <article class="card value-card"><div class="badge">05</div><h2>未来竞争力</h2><p>掌握 AI 工具即拥有职场核心竞争力，能持续适应新工具、新流程和新岗位要求。</p></article>
+      </div>
+    </section>
+
+    <section class="slide theme-paint">
+      <header class="topbar">
+        <div><div class="eyebrow">模块 01 · 视觉设计方向</div><h1>AI绘画</h1><p class="summary">从基础出图到商业视觉系统，训练学员独立完成品牌、广告、电商、游戏与影视概念类设计项目。</p></div>
+        <div class="icon-mark" aria-hidden="true">🎨</div>
+      </header>
+      <div class="course-grid">
+        <article class="card curriculum">
+          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
+          <ol class="lesson-list">
+            <li>图像生成基础与参数调节</li><li>风格迁移与艺术风格融合</li><li>高级光影处理与构图</li><li>色彩搭配与视觉设计原理</li><li>插画与概念艺术创作</li><li>广告海报设计</li><li>品牌视觉识别系统（VI）制作</li><li>电商 Banner 和详情页设计</li><li>游戏角色概念图设计</li><li>影视概念画创作</li><li>多风格混合与创新艺术表现</li><li>高分辨率输出与商业打印优化</li><li>角色场景整合与背景渲染</li><li>作品组合与设计集成展示</li><li>创意设计项目管理与商业落地</li>
+          </ol>
+        </article>
+        <aside class="side-stack">
+          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立完成商业级视觉设计项目，胜任品牌设计、广告设计、游戏 / 影视概念设计。</p></article>
+          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接视觉设计师、品牌设计师、游戏 / 影视概念设计师等岗位。</p></article>
+          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">5k-15k <small>/ 月</small></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide theme-video">
+      <header class="topbar">
+        <div><div class="eyebrow">模块 02 · 商业视频方向</div><h1>AI视频</h1><p class="summary">覆盖分镜、生成、剪辑、特效和成片输出，帮助学员完成宣传短片、剧情漫剧或 MV 级视觉短视频。</p></div>
+        <div class="icon-mark" aria-hidden="true">▶</div>
+      </header>
+      <div class="course-grid">
+        <article class="card curriculum">
+          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
+          <ol class="lesson-list">
+            <li>短视频生成基础与参数设置</li><li>视频剪辑基础操作</li><li>动作捕捉与骨骼动画</li><li>漫剧场景设计与制作</li><li>视频分镜设计与故事板规划</li><li>镜头切换与转场效果</li><li>字幕生成与自动排版</li><li>音频与视频同步处理</li><li>特效添加与视频风格化</li><li>多场景视频整合</li><li>商业广告短片制作</li><li>30秒–1分钟视频成片输出</li><li>MV风格视频制作</li><li>视频色彩与光影校正</li><li>视频项目整体规划与输出</li>
+          </ol>
+        </article>
+        <aside class="side-stack">
+          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立制作商业宣传短片、剧情漫剧或 MV，完成分镜、剪辑、特效和成片输出。</p></article>
+          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接视频制作师、动画制作师、短视频导演助理等岗位。</p></article>
+          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">6k-18k <small>/ 月</small></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide theme-audio">
+      <header class="topbar">
+        <div><div class="eyebrow">模块 03 · 声音内容方向</div><h1>AI音乐/声音</h1><p class="summary">训练配乐、配音、语音克隆、数字人语音与音效整合能力，让视频和广告具备完整听觉表现力。</p></div>
+        <div class="icon-mark" aria-hidden="true">♪</div>
+      </header>
+      <div class="course-grid">
+        <article class="card curriculum">
+          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
+          <ol class="lesson-list">
+            <li>背景音乐生成基础</li><li>音乐风格选择与混音技巧</li><li>多轨音频编辑</li><li>音效设计基础</li><li>AI配音基础</li><li>语音克隆与人物声音模拟</li><li>情感语音输出</li><li>数字人语音生成</li><li>视频配音与音效整合</li><li>音频剪辑与后期处理</li><li>自动混音与风格化处理</li><li>商业广告音频制作</li><li>音乐与视频同步处理</li><li>音效创新与创意设计</li><li>音频项目整体管理与输出</li>
+          </ol>
+        </article>
+        <aside class="side-stack">
+          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立完成短视频 / 广告音效、配乐和配音，能交付完整音频方案。</p></article>
+          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>胜任音效设计师、配音师、虚拟数字人音频制作岗位。</p></article>
+          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">5k-15k <small>/ 月</small></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide theme-code">
+      <header class="topbar">
+        <div><div class="eyebrow">模块 04 · 软件开发方向</div><h1>AI编程</h1><p class="summary">通过 AI 辅助开发，把网页、小程序、工具 APP、可视化和部署上线串成完整产品级开发流程。</p></div>
+        <div class="icon-mark" aria-hidden="true">&lt;/&gt;</div>
+      </header>
+      <div class="course-grid">
+        <article class="card curriculum">
+          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
+          <ol class="lesson-list">
+            <li>HTML/CSS基础与页面结构</li><li>JavaScript交互实现</li><li>前端布局与响应式设计</li><li>小程序开发基础</li><li>工具类APP开发基础</li><li>数据处理与前端可视化</li><li>动态页面功能实现</li><li>AI接口调用与整合</li><li>API数据处理与展示</li><li>用户交互与表单处理</li><li>简单小游戏开发</li><li>小型工具自动化实现</li><li>网站/APP部署与上线</li><li>用户体验优化</li><li>项目开发流程管理</li>
+          </ol>
+        </article>
+        <aside class="side-stack">
+          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立开发可交互网站、小程序或工具类 APP，并具备上线交付意识。</p></article>
+          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可胜任前端开发或初级软件开发岗位，适合转向技术型职业发展。</p></article>
+          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">6k-20k <small>/ 月</small></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide theme-office">
+      <header class="topbar">
+        <div><div class="eyebrow">模块 05 · 企业效率方向</div><h1>AI办公</h1><p class="summary">围绕企业真实办公流程，训练文档、PPT、数据、图表、报告和文案的自动化产出能力。</p></div>
+        <div class="icon-mark" aria-hidden="true">▦</div>
+      </header>
+      <div class="course-grid">
+        <article class="card curriculum">
+          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
+          <ol class="lesson-list">
+            <li>文档生成与自动排版</li><li>PPT自动化制作</li><li>数据整理与清洗</li><li>Excel高级公式应用</li><li>数据分析基础</li><li>可视化图表生成</li><li>数据分析报告编写</li><li>高级文案生成与优化</li><li>内容风格多样化输出</li><li>批量处理文档和文本</li><li>自动生成工作总结</li><li>项目报告与演示文稿制作</li><li>企业营销文案生成</li><li>文档和报告视觉优化</li><li>办公自动化流程设计</li>
+          </ol>
+        </article>
+        <aside class="side-stack">
+          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立产出企业级文档、PPT、报表和文案，提高办公效率并输出商业成果。</p></article>
+          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接数据分析助理、内容策划、企业运营助理等岗位。</p></article>
+          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">5k-15k <small>/ 月</small></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide theme-pm">
+      <header class="topbar">
+        <div><div class="eyebrow">模块 06 · 产品管理方向</div><h1>AI产品经理</h1><p class="summary">以产品全流程为主线，训练从需求分析、竞品研究、原型设计到迭代规划和项目交付的完整能力。</p></div>
+        <div class="icon-mark" aria-hidden="true">◆</div>
+      </header>
+      <div class="course-grid">
+        <article class="card curriculum">
+          <div class="section-title"><div class="badge">15</div><h2>教学内容</h2></div>
+          <ol class="lesson-list">
+            <li>BRD文档编写</li><li>MRD文档分析</li><li>PRD文档撰写</li><li>DRD设计流程</li><li>用户调研方法</li><li>竞品分析技巧</li><li>产品功能列表设计</li><li>原型设计基础</li><li>原型交互优化</li><li>功能迭代规划</li><li>优先级评估与决策</li><li>产品路线图设计</li><li>AI辅助文档生成</li><li>团队协作与项目管理</li><li>产品交付与项目总结</li>
+          </ol>
+        </article>
+        <aside class="side-stack">
+          <article class="card side-card"><h2><span class="badge">能</span>学员最终能力</h2><p>独立完成 AI 产品全流程规划和交付，胜任初级到中级 AI 产品经理岗位。</p></article>
+          <article class="card side-card"><h2><span class="badge">岗</span>职业价值</h2><p>可对接产品经理助理、AI 产品经理等岗位，适合进入 AI 应用产品团队。</p></article>
+          <article class="card side-card"><h2><span class="badge">薪</span>薪资参考</h2><div class="salary">8k-20k <small>/ 月</small></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide theme-summary">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">总结页 · 课程优势与职业价值</div>
+          <h1>学完即可参与真实项目</h1>
+          <p class="summary">AIGC 全能课程的核心价值，是把零基础学员培养成能产出作品、能服务项目、能匹配岗位的复合型 AI 应用人才。</p>
+        </div>
+        <div class="icon-mark" aria-hidden="true">↗</div>
+      </header>
+      <div class="summary-grid">
+        <article class="card value-card"><div class="badge">01</div><h2>课程优势清晰</h2><p>零基础入门，项目制训练，高端作品输出，形成可销售、可汇报、可展示的课程闭环。</p></article>
+        <article class="card value-card"><div class="badge">02</div><h2>多模态能力覆盖</h2><p>绘画、视频、音频、编程、办公、产品管理六大方向，覆盖企业真实应用场景。</p></article>
+        <article class="card value-card"><div class="badge">03</div><h2>职业价值明确</h2><p>每个模块都对应岗位、薪资和能力结果，便于销售讲解，也便于领导判断投入价值。</p></article>
+        <article class="card value-card"><div class="badge">04</div><h2>项目交付导向</h2><p>学完可参与品牌视觉、广告短片、数字人音频、Web 工具、办公自动化和 AI 产品方案。</p></article>
+      </div>
+      <div class="metric-row">
+        <div class="metric"><strong>6大方向</strong><span>覆盖内容生产、软件开发、企业效率与产品管理。</span></div>
+        <div class="metric"><strong>90项内容</strong><span>每个模块 15 条教学内容，体系完整，颗粒度清晰。</span></div>
+        <div class="metric"><strong>5k-20k/月</strong><span>呈现从入门到进阶岗位的职业前景和薪资价值。</span></div>
+      </div>
+    </section>
+  </main>
+
+  <button class="nav-button prev" type="button" aria-label="上一页">‹</button>
+  <button class="nav-button next" type="button" aria-label="下一页">›</button>
+
+  <footer class="footer">
+    <span id="pageText">1 / 8</span>
+    <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+    <span>键盘 ← → 切换</span>
+  </footer>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    const pageText = document.getElementById("pageText");
+    const progressFill = document.getElementById("progressFill");
+    let currentIndex = 0;
+
+    function renderSlide(index) {
+      currentIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === currentIndex);
+      });
+      pageText.textContent = `${currentIndex + 1} / ${slides.length}`;
+      progressFill.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
+    }
+
+    prevButton.addEventListener("click", () => renderSlide(currentIndex - 1));
+    nextButton.addEventListener("click", () => renderSlide(currentIndex + 1));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") renderSlide(currentIndex - 1);
+      if (event.key === "ArrowRight") renderSlide(currentIndex + 1);
+    });
+
+    renderSlide(0);
+  </script>
+</body>
+</html>
