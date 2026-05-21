@@ -63,11 +63,11 @@
       --tint: rgba(79, 140, 255, 0.09);
       position: absolute;
       width: min(1240px, calc(100vw - 168px));
-      min-height: min(704px, calc(100vh - 92px));
+      height: min(704px, calc(100vh - 92px));
       display: none;
       grid-template-rows: auto 1fr;
-      gap: 22px;
-      padding: 38px;
+      gap: 16px;
+      padding: 34px;
       overflow: hidden;
       border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.74);
@@ -124,8 +124,9 @@
       z-index: 1;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 24px;
+      gap: 20px;
       align-items: start;
+      min-height: 0;
     }
 
     .eyebrow {
@@ -151,9 +152,9 @@
     }
 
     h1 {
-      margin: 14px 0 9px;
+      margin: 12px 0 8px;
       font-family: Montserrat, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: clamp(39px, 5vw, 70px);
+      font-size: clamp(36px, 4.35vw, 61px);
       line-height: 1.04;
       letter-spacing: 0;
     }
@@ -162,18 +163,18 @@
       max-width: 870px;
       margin: 0;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.65;
+      font-size: 16.5px;
+      line-height: 1.52;
     }
 
     .icon-mark {
-      width: 104px;
-      height: 104px;
+      width: 92px;
+      height: 92px;
       display: grid;
       place-items: center;
-      border-radius: 28px;
+      border-radius: 25px;
       color: white;
-      font-size: 38px;
+      font-size: 34px;
       font-weight: 950;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: 0 22px 46px rgba(17, 24, 39, 0.16);
@@ -183,12 +184,18 @@
     .value-grid,
     .term-grid,
     .trend-grid,
-    .job-grid {
+    .job-grid,
+    .advantage-grid,
+    .closing-grid,
+    .intro-grid,
+    .front-grid,
+    .tool-grid {
       position: relative;
       z-index: 1;
       display: grid;
       gap: 15px;
       align-items: stretch;
+      min-height: 0;
     }
 
     .value-grid {
@@ -197,9 +204,15 @@
 
     .term-grid {
       grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 126px;
+      grid-auto-rows: minmax(0, 1fr);
       align-items: stretch;
       align-content: start;
+      height: 100%;
+    }
+
+    .term-grid.short {
+      height: auto;
+      grid-auto-rows: 126px;
     }
 
     .trend-grid {
@@ -210,14 +223,42 @@
       grid-template-columns: repeat(4, 1fr);
     }
 
+    .advantage-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      height: 100%;
+      gap: 13px;
+    }
+
+    .closing-grid {
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 18px;
+    }
+
+    .intro-grid {
+      grid-template-columns: 0.9fr 1.25fr;
+      gap: 18px;
+      min-height: 0;
+    }
+
+    .front-grid {
+      grid-template-columns: repeat(3, 1fr);
+      height: 100%;
+    }
+
+    .tool-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
     .course-grid {
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.45fr 0.85fr;
-      gap: 18px;
+      grid-template-columns: 1.55fr 0.9fr;
+      gap: 16px;
       align-items: stretch;
       min-height: 0;
+      height: 100%;
     }
 
     .card {
@@ -225,14 +266,126 @@
       background: var(--card);
       border: 1px solid var(--line);
       box-shadow: 0 12px 30px rgba(31, 44, 72, 0.08);
+      min-height: 0;
+      overflow: hidden;
     }
 
     .value-card,
     .trend-card,
     .job-card,
     .term-card,
+    .advantage-card,
+    .closing-card,
+    .salary-card,
+    .intro-card,
+    .front-card,
+    .tool-card,
     .side-card {
       padding: 20px;
+    }
+
+    .intro-card {
+      min-height: 0;
+    }
+
+    .speaker-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      min-height: 0;
+      text-align: center;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72)),
+        linear-gradient(135deg, rgba(79, 140, 255, 0.1), rgba(128, 103, 255, 0.1));
+    }
+
+    .avatar-mark {
+      width: 128px;
+      height: 128px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      border-radius: 36px;
+      color: white;
+      font-size: 48px;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 24px 50px rgba(31, 41, 70, 0.16);
+    }
+
+    .speaker-photo {
+      width: 154px;
+      height: 154px;
+      margin: 0 auto;
+      display: block;
+      object-fit: cover;
+      object-position: center 24%;
+      border-radius: 40px;
+      border: 5px solid rgba(255, 255, 255, 0.86);
+      box-shadow: 0 24px 54px rgba(31, 41, 70, 0.18);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .speaker-name {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .speaker-sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .intro-detail {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 15px;
+      min-height: 0;
+    }
+
+    .intro-point {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      min-height: 0;
+    }
+
+    .front-card,
+    .tool-card {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .front-card p,
+    .tool-card p {
+      font-size: 15.2px;
+      line-height: 1.62;
+    }
+
+    .tool-price {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid rgba(17, 24, 39, 0.08);
+      color: var(--accent);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 34px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .tool-price small {
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
     }
 
     .value-card {
@@ -250,9 +403,100 @@
       gap: 12px;
     }
 
+    .advantage-card {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 18px;
+    }
+
+    .advantage-card p {
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .talk-box {
+      margin-top: auto;
+      padding: 8px 10px;
+      border-radius: 14px;
+      color: #27364f;
+      font-size: 11.4px;
+      line-height: 1.32;
+      font-weight: 800;
+      background: rgba(79, 140, 255, 0.09);
+      border: 1px solid rgba(79, 140, 255, 0.14);
+    }
+
+    .closing-card {
+      min-height: 372px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .closing-card h2 {
+      font-size: 26px;
+    }
+
+    .quote {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(24px, 2.8vw, 38px);
+      line-height: 1.32;
+      font-weight: 950;
+    }
+
+    .sales-note {
+      padding: 16px 18px;
+      border-radius: 16px;
+      color: #27364f;
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 850;
+      background: rgba(128, 103, 255, 0.09);
+      border: 1px solid rgba(128, 103, 255, 0.14);
+    }
+
+    .closing-side {
+      display: grid;
+      grid-template-rows: repeat(3, auto) 1fr;
+      gap: 14px;
+    }
+
+    .salary-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      min-height: 78px;
+    }
+
+    .salary-card h3 {
+      font-size: 16px;
+      color: #344054;
+    }
+
+    .salary-card strong {
+      color: var(--accent);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 25px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .final-value {
+      min-height: 124px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
     .term-card {
-      min-height: 126px;
-      padding: 14px 15px;
+      min-height: 0;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -261,32 +505,32 @@
     .card h2,
     .card h3 {
       margin: 0;
-      font-size: 19px;
-      line-height: 1.34;
+      font-size: 18px;
+      line-height: 1.26;
     }
 
     .card p {
       margin: 0;
       color: #344054;
-      font-size: 15.5px;
-      line-height: 1.58;
+      font-size: 14.2px;
+      line-height: 1.46;
     }
 
     .term-card h3 {
       margin-bottom: 6px;
       color: var(--accent);
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .term-card p {
-      font-size: 13.6px;
-      line-height: 1.45;
+      font-size: 12.8px;
+      line-height: 1.36;
     }
 
     .salary {
       margin-top: 8px;
       color: var(--accent);
-      font-size: clamp(28px, 3.4vw, 44px);
+      font-size: clamp(26px, 3vw, 38px);
       line-height: 1;
       font-weight: 950;
     }
@@ -298,20 +542,20 @@
     }
 
     .badge {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       display: grid;
       place-items: center;
       flex: 0 0 auto;
       border-radius: 11px;
       color: white;
-      font-size: 14px;
+      font-size: 12.5px;
       font-weight: 900;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
     }
 
     .curriculum {
-      padding: 22px;
+      padding: 18px;
       display: grid;
       grid-template-rows: auto 1fr;
       min-height: 0;
@@ -321,14 +565,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .lesson-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(5, minmax(0, 1fr));
-      gap: 11px;
+      gap: 9px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -343,11 +587,11 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 12px;
+      padding: 8px 10px;
       border-radius: 14px;
       color: #27364f;
-      font-size: 14px;
-      line-height: 1.34;
+      font-size: 13.2px;
+      line-height: 1.24;
       background: rgba(255, 255, 255, 0.75);
       border: 1px solid rgba(17, 24, 39, 0.075);
     }
@@ -362,37 +606,72 @@
 
     .side-stack {
       display: grid;
-      grid-template-rows: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-rows: 0.98fr 1.08fr 0.92fr;
+      gap: 10px;
       min-height: 0;
+      height: 100%;
     }
 
     .side-card {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 0;
+      padding: 12px 16px;
     }
 
     .side-card h2 {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 9px;
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 1.16;
+      flex: 0 0 auto;
+    }
+
+    .salary-side {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .salary-side p {
+      display: none;
+    }
+
+    .salary-side h2 {
+      margin-bottom: 0;
+      white-space: nowrap;
+    }
+
+    .salary-side .salary {
+      margin-top: 0;
+      font-size: clamp(28px, 3.2vw, 39px);
+      line-height: 0.95;
+      white-space: nowrap;
+    }
+
+    .side-card p {
+      font-size: 13.5px;
+      line-height: 1.4;
+      flex: 0 0 auto;
     }
 
     .pill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 12px;
+      gap: 6px;
+      margin-top: 8px;
+      overflow: hidden;
     }
 
     .pill {
-      padding: 8px 10px;
+      padding: 5px 8px;
       border-radius: 999px;
       color: #27364f;
-      font-size: 13px;
+      font-size: 11.4px;
       font-weight: 800;
       background: rgba(255, 255, 255, 0.72);
       border: 1px solid rgba(17, 24, 39, 0.08);
@@ -475,6 +754,7 @@
       .slide {
         position: relative;
         width: 100%;
+        height: auto;
         min-height: auto;
         padding: 26px;
         border-radius: 22px;
@@ -485,7 +765,12 @@
       .course-grid,
       .term-grid,
       .trend-grid,
-      .job-grid {
+      .job-grid,
+      .advantage-grid,
+      .closing-grid,
+      .intro-grid,
+      .front-grid,
+      .tool-grid {
         grid-template-columns: 1fr;
       }
 
@@ -503,6 +788,12 @@
       .value-card,
       .trend-card,
       .job-card,
+      .advantage-card,
+      .closing-card,
+      .salary-card,
+      .intro-card,
+      .front-card,
+      .tool-card,
       .term-card {
         min-height: auto;
       }
@@ -534,12 +825,73 @@
   <button class="nav-button next" type="button" aria-label="下一页">›</button>
 
   <footer class="footer">
-    <span id="pageText">1 / 16</span>
+    <span id="pageText">1 / 21</span>
     <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
     <span>键盘 ← → 切换</span>
   </footer>
 
   <script>
+    const openingSlides = [
+      {
+        type: "intro",
+        theme: ["#4f8cff", "#8067ff", "rgba(79, 140, 255, 0.1)"],
+        eyebrow: "分享人介绍",
+        title: "今天由我来分享",
+        icon: "旭",
+        summary: "先简单认识一下：我是王冠旭，大家叫我大旭就好。今天的分享会尽量直接、高效、务实，把课程价值、招生转化和 AI 时代机会讲清楚。",
+        speaker: {
+          name: "王冠旭",
+          alias: "大家叫我大旭就好",
+          photo: "assets/speaker-da-xu.png",
+          tags: ["直接", "高效", "务实", "体型特点：胖"]
+        },
+        points: [
+          ["分享风格", "不绕弯，不讲空话，重点围绕课程如何卖、如何交付、如何帮助学员形成真实能力。"],
+          ["沟通目标", "让领导能判断课程价值，让销售能讲清课程卖点，让学员能理解为什么现在必须学习 AI。"],
+          ["一句话定位", "用最务实的方式，把 AIGC 从“听起来很火”讲成“能报名、能学习、能产出、能就业”的课程产品。"]
+        ]
+      },
+      {
+        type: "front",
+        theme: ["#8067ff", "#36c58a", "rgba(128, 103, 255, 0.1)"],
+        eyebrow: "今日分享目的",
+        title: "提高转化率",
+        icon: "转",
+        summary: "在现代 AI 时代，课程价值不只体现在教学内容本身，也体现在能否承接学员咨询、推动报名转化，最终让培训机构产生真实商业收益。",
+        items: [
+          ["承接学员流量", "机构有专人负责宣传和流量引入，学员会通过线上咨询、线下到访、活动体验等方式进入咨询链路。课程展示页需要帮助销售快速讲清价值，承接每一次潜在机会。"],
+          ["实现报名转化", "线下到访学员通常意向更高，关键是把握咨询窗口，用清晰的课程结构、成果展示、就业价值和学习路径降低决策成本，提高报名转化率。"],
+          ["线上线下结合", "通过标准化咨询流程、跟进节奏和转化话术，减少潜在客户流失，让课程从“内容产品”升级为“招生转化工具”，帮助机构实现收益最大化。"]
+        ]
+      },
+      {
+        type: "front",
+        theme: ["#25b7a7", "#4f8cff", "rgba(37, 183, 167, 0.1)"],
+        eyebrow: "AI认知与思维方式",
+        title: "学习 AI，本质是建立新时代的工作方式",
+        icon: "思",
+        summary: "AI 不是单一工具，而是一套新的生产力系统。课程要帮助学员理解 AI、使用 AI，并把 AI 变成放大个人能力的杠杆。",
+        items: [
+          ["AI 是技能的放大器", "学习 AI 不只是学会某个软件，而是掌握 AI 时代的任务拆解、提示表达、流程设计和结果优化能力。它能让设计、办公、编程、内容和产品能力成倍提升。"],
+          ["AI 与 AIGC 的关系", "AI 是能力基础，AIGC 是能力在内容生产中的直接应用。图片、视频、文本、音频、代码和文档都可以由 AI 辅助生成，让创意和执行效率大幅提升。"],
+          ["行业门槛正在降低", "AI 让很多行业的入门门槛显著下降。学员不需要过度担心零基础，只要掌握核心思维和工具流程，就能快速参与项目产出，建立可展示的作品能力。"]
+        ]
+      },
+      {
+        type: "tools",
+        theme: ["#f5a524", "#8067ff", "rgba(245, 165, 36, 0.11)"],
+        eyebrow: "学习成本与工具支持",
+        title: "工具会员是实操落地的重要保障",
+        icon: "¥",
+        summary: "在 AI 时代，工具和会员是技能落地的基础配置。为了保证学员完整体验课程、完成实操训练和作品产出，建议学习期间准备必要的 AI 工具会员。",
+        items: [
+          ["核心工具示例", "即梦、Lib、GPT Plus 是学习和实践中性价比较高的选择，可支持图像生成、视频制作、AI 对话、提示词训练和项目辅助等核心练习。", "工具组合"],
+          ["学习周期与费用", "课程周期为两个月，每位学员工具会员费用大约 600 元左右。费用相对合理，投资的是可直接落地的技能、作品和实践能力。", "约600元"],
+          ["灵活选择", "学员可根据自身需求选择工具版本和订阅周期，保证学习体验灵活可控。工具不是负担，而是帮助学员完成真实项目的重要生产资料。", "按需订阅"]
+        ]
+      }
+    ];
+
     const courseSlides = [
       {
         type: "cover",
@@ -736,15 +1088,15 @@
         type: "trends",
         theme: ["#4f8cff", "#36c58a", "rgba(79, 140, 255, 0.1)"],
         eyebrow: "行业发展趋势",
-        title: "AI 正在成为新型生产力",
+        title: "AI 正在从工具走向数字工人",
         icon: "↗",
-        summary: "生成式 AI 的价值不再停留在概念层，而是进入企业降本增效、内容生产、客户增长、软件研发和产品创新的核心流程。对培训课程来说，关键不是追热点，而是建立可迁移的 AI 应用能力。",
+        summary: "AI 时代的核心不是观望，而是拥抱变化。当前 AI 仍处于工具阶段，但下一阶段会逐步成为能执行任务、协作流程、参与交付的“数字工人”。长期看，随着 AGI 能力持续逼近，所有行业都会重新筛选人才：不会使用 AI、不具备 AI 思维的人，会逐渐失去竞争优势。",
         items: [
-          ["生成式AI快速发展", "从文本生成扩展到图像、视频、音频、代码和数据分析，AI 已经进入营销、电商、教育、影视、办公和软件研发等场景，企业对“能直接产出结果”的人才需求明显增加。"],
-          ["多模态AI能力增强", "文字、图片、音频、视频正在被统一理解和生成。一个人可以完成过去需要文案、设计、剪辑、配音、开发协作完成的部分工作，岗位边界正在被重新定义。"],
-          ["Prompt工程与工具化", "未来不是单纯会聊天，而是会拆任务、写指令、搭流程、控质量。Prompt、工作流、模板化工具和自动化脚本会成为高效率人才的标准能力。"],
-          ["企业级应用增长", "企业开始把 AI 接入知识库、客服、销售、培训、报表和产品流程。RAG、Memory、Agent 等能力让 AI 从“问答工具”升级为“业务流程助手”。"],
-          ["AI人才需求增加", "市场需要懂业务、懂工具、懂交付的人。既能操作 AI，又能理解内容、数据、产品或开发流程的人，会比只掌握单一软件的人更有竞争力。"]
+          ["从工具阶段到工人阶段", "今天的 AI 主要帮助人提效、生成内容和辅助决策；下一阶段，AI 会更像可协作的数字工人，能接收任务、调用工具、执行流程并参与结果交付。"],
+          ["AGI推动行业重构", "AGI 是长期发展方向，意味着 AI 的理解、推理、规划和跨任务能力会持续增强。行业竞争会从“谁会用软件”转向“谁能用 AI 组织生产力”。"],
+          ["不会使用AI将被淘汰", "大部分岗位不会立刻消失，但工作方式会被重写。不懂 AI 工具、不具备 AI 思维、不懂任务拆解和流程协作的人，会在效率和产出上被快速拉开差距。"],
+          ["新岗位正在出现", "AI 不只替代旧流程，也会创造新岗位，例如 AI内容生产、AI办公提效、Prompt工程、AI产品助理、AI应用开发，以及帮助企业完成 AI 落地的顾问型岗位。"],
+          ["企业落地需求增长", "企业真正需要的不是概念演示，而是把 AI 接入营销、客服、培训、报表、知识库和产品流程。懂业务、懂工具、懂交付的人，会成为 AI 落地的关键人才。"]
         ]
       },
       {
@@ -760,10 +1112,51 @@
           ["AI办公方向", "数据分析助理、内容策划、企业运营助理、销售支持、行政文档专员、新媒体文案、项目报告专员、AI办公效率顾问。"],
           ["产品管理方向", "AI产品经理、产品经理助理、产品策划、需求分析师、B端产品助理、AI应用产品专员、项目经理助理、运营产品专员。"]
         ]
+      },
+      {
+        type: "advantages",
+        theme: ["#4f8cff", "#8067ff", "rgba(79, 140, 255, 0.1)"],
+        eyebrow: "课程优势亮点",
+        title: "为什么这套课更好卖、更好交付",
+        icon: "优",
+        summary: "把课程价值从“学工具”升级为“学体系、出作品、能就业、可落地”，方便领导判断产品价值，也方便销售对外讲清楚。",
+        items: [
+          {
+            title: "全链路技能覆盖",
+            body: "模块覆盖 AI绘画、AI视频、AI音乐/声音、AI编程、AI办公、AI产品管理。从创意到落地、从工具操作到商业应用，全套技能一次掌握。",
+            talk: "学完不只是会操作工具，更能独立完成完整项目：从设计海报到制作短视频，从报表分析到产品原型，都能自己交付。"
+          },
+          {
+            title: "结果导向、商业落地",
+            body: "每个模块至少 15 条具体技能，从基础操作到高级应用逐级推进。作品可复用、可展示、可直接用于工作或创业。",
+            talk: "我们的课程重视产出，每堂课都在做可展示的作品，真正学到手的是能力而不是概念。"
+          },
+          {
+            title: "职场竞争力明确",
+            body: "就业方向覆盖创意、技术、办公、产品四类岗位。AI视觉/视频/声音岗位 5k-18k/月，AI编程/办公岗位 5k-20k/月，AI产品管理岗位 8k-20k/月。",
+            talk: "你学的每一项技能，都有对应岗位和薪资，学完就能清楚知道自己的职业价值。"
+          },
+          {
+            title: "前沿技术体系化",
+            body: "术语体系 LV1-LV7 逐步解析 AI、AIGC、Prompt 工程、RAG、Agent 等核心概念，让学员不仅知道怎么做，也理解为什么这样做。",
+            talk: "我们系统教 AI 技术原理，让你不仅能操作，更能设计流程和策略。"
+          },
+          {
+            title: "跨行业应用",
+            body: "适用设计、营销、电商、短视频、数字人、企业办公、数据分析、产品规划等场景。技能可迁移，越早掌握越能建立先发优势。",
+            talk: "掌握这些技能，你在任何行业都能成为效率和产出的核心人才。"
+          },
+          {
+            title: "体验式教学",
+            body: "采用实战项目 + 案例演练，零基础也能快速上手，在职人员可升级技能。课程目标不是听懂，而是能做真实项目。",
+            talk: "课程内容都是实操导向，学完就能做真实项目，学到手的是真正能用的能力。"
+          }
+        ]
       }
     ];
 
     const slides = [
+      ...openingSlides,
       ...courseSlides,
       ...termLevels.map((level, index) => ({
         type: "terms",
@@ -828,6 +1221,63 @@
       `;
     }
 
+    function renderIntro(slide) {
+      return `
+        <div class="intro-grid">
+          <article class="card intro-card speaker-card">
+            ${slide.speaker.photo
+              ? `<img class="speaker-photo" src="${escapeHtml(slide.speaker.photo)}" alt="${escapeHtml(slide.speaker.name)}的照片" />`
+              : `<div class="avatar-mark">${escapeHtml(slide.icon)}</div>`}
+            <div>
+              <p class="speaker-name">${escapeHtml(slide.speaker.name)}</p>
+              <p class="speaker-sub">${escapeHtml(slide.speaker.alias)}</p>
+            </div>
+            <div class="pill-list" style="justify-content:center;">
+              ${slide.speaker.tags.map((tag) => `<span class="pill">${escapeHtml(tag)}</span>`).join("")}
+            </div>
+          </article>
+          <div class="intro-detail">
+            ${slide.points.map((item, index) => `
+              <article class="card intro-card intro-point">
+                <div class="badge">${String(index + 1).padStart(2, "0")}</div>
+                <h2>${escapeHtml(item[0])}</h2>
+                <p>${escapeHtml(item[1])}</p>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFront(slide) {
+      return `
+        <div class="front-grid">
+          ${slide.items.map((item, index) => `
+            <article class="card front-card">
+              <div class="badge">${String(index + 1).padStart(2, "0")}</div>
+              <h2>${escapeHtml(item[0])}</h2>
+              <p>${escapeHtml(item[1])}</p>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderTools(slide) {
+      return `
+        <div class="tool-grid">
+          ${slide.items.map((item, index) => `
+            <article class="card tool-card">
+              <div class="badge">${String(index + 1).padStart(2, "0")}</div>
+              <h2>${escapeHtml(item[0])}</h2>
+              <p>${escapeHtml(item[1])}</p>
+              <div class="tool-price">${escapeHtml(item[2])}<small></small></div>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
     function renderCourse(slide) {
       return `
         <div class="course-grid">
@@ -847,7 +1297,7 @@
               <p>岗位覆盖从助理执行到项目交付型岗位，既能面向零基础转型，也能支持在职人员做技能升级。</p>
               <div class="pill-list">${slide.jobs.map((job) => `<span class="pill">${escapeHtml(job)}</span>`).join("")}</div>
             </article>
-            <article class="card side-card">
+            <article class="card side-card salary-side">
               <h2><span class="badge">薪</span>参考薪资</h2>
               <p>结合行业初级到中级岗位区间，用于销售讲解和学员职业预期沟通。</p>
               <div class="salary">${escapeHtml(slide.salary)}</div>
@@ -859,7 +1309,7 @@
 
     function renderTerms(slide) {
       return `
-        <div class="term-grid">
+        <div class="term-grid${slide.terms.length <= 4 ? " short" : ""}">
           ${slide.terms.map((term) => `
             <article class="card term-card">
               <h3>${escapeHtml(term[0])}</h3>
@@ -898,11 +1348,55 @@
       `;
     }
 
+    function renderAdvantages(slide) {
+      return `
+        <div class="advantage-grid">
+          ${slide.items.map((item, index) => `
+            <article class="card advantage-card">
+              <div class="badge">${String(index + 1).padStart(2, "0")}</div>
+              <h2>${escapeHtml(item.title)}</h2>
+              <p>${escapeHtml(item.body)}</p>
+              <div class="talk-box">${escapeHtml(item.talk)}</div>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderClosing(slide) {
+      return `
+        <div class="closing-grid">
+          <article class="card closing-card">
+            <h2>核心收尾话术</h2>
+            <p class="quote">“${escapeHtml(slide.quote)}”</p>
+            <div class="sales-note">${escapeHtml(slide.note)}</div>
+          </article>
+          <aside class="closing-side">
+            ${slide.salaries.map((item) => `
+              <article class="card salary-card">
+                <h3>${escapeHtml(item[0])}</h3>
+                <strong>${escapeHtml(item[1])}</strong>
+              </article>
+            `).join("")}
+            <article class="card side-card final-value">
+              <h2><span class="badge">值</span>最终价值</h2>
+              <p>${escapeHtml(slide.finalValue)}</p>
+            </article>
+          </aside>
+        </div>
+      `;
+    }
+
     function renderSlideBody(slide) {
+      if (slide.type === "intro") return renderIntro(slide);
+      if (slide.type === "front") return renderFront(slide);
+      if (slide.type === "tools") return renderTools(slide);
       if (slide.type === "cover") return renderCover(slide);
       if (slide.type === "course") return renderCourse(slide);
       if (slide.type === "terms") return renderTerms(slide);
       if (slide.type === "trends") return renderTrends(slide);
+      if (slide.type === "advantages") return renderAdvantages(slide);
+      if (slide.type === "closing") return renderClosing(slide);
       return renderJobs(slide);
     }
 
